@@ -1,0 +1,267 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSIDE</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="image/favi3.png" 
+    >
+    <script src="https://kit.fontawesome.com/086f4a6de6.js" 
+    crossorigin="anonymous"></script>
+    <style>
+        #overlay{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgb(0, 0, 0, 0.6);
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row bg-dark">
+                <div class="col-lg-12">
+                    <p class="text-center text-light display-4 pt-2" style="font-size: 25px;">Crud Aplication</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <h3 class="text-info">Clientes Registrados</h3>
+                </div>
+                <div class="col-lg-6">
+                    <button class="btn btn-info float-right" @click="showAddModal=true">
+                        <i class="fa fa-user"></i>&nbsp;&nbsp;Adicionar Usuário
+                    </button>
+                </div>
+            </div>
+            <hr class="bg-info">
+            <div class="alert alert-danger" v-if="errorMsg">
+                {{ errorMsg }
+            </div>
+            <div class="alert alert-success" v-if="successMsg">
+                {{successMsg}}
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr class="text-center bg-info text-light">
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Nº Contêiner</th>
+                                <th>Tipo</th>
+                                <th>Status</th>
+                                <th>Categoria</th>
+                                <th>Movimentação</th>
+                                <th>Data e hora (Início)</th>
+                                <th>Data e hora (Fim)</th>
+                                <th>Editar</th>
+                                <th>Deletar</th>
+                            </tr>
+                            <button class="btn btn-info" @click="showDeleteModal=false"> Gerar PDF </button>
+                            <br/>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" v-for="client in cliente">
+                                <td>{{ client.id }}</td>
+                                <td>{{ client.nome }}</td>
+                                <td>{{ client.nconteiner }}</td>
+                                <td>{{ client.tipo }}</td>
+                                <td>{{ client.status }}</td>
+                                <td>{{ client.categoria }}</td>
+                                <td>{{ client.movs }}</td>
+                                <td>{{ client.dta_inicio }}</td>
+                                <td>{{ client.dta_fim }}</td>
+                                <td><a href="#" class="text-success" @click="showEditModal=true; selectCliente(client);"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="#" class="text-danger"><i class="fas fa-trash-alt" @click="showDeleteModal=true; selectCliente(client);"></i></a></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>38560</td>
+                                <td>Augusto</td>
+                                <td>TEST1234567</td>
+                                <td>20</td>
+                                <td>Cheio</td>
+                                <td>Importação</td>
+                                <td>Embarque</td>
+                                <td>12/08/2021 14:20</td>
+                                <td>12/08/2021 14:56</td>
+                                <td><a href="#" class="text-success"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="#" class="text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>76372</td>
+                                <td>Mariana</td>
+                                <td>TEST8738725</td>
+                                <td>40</td>
+                                <td>Vazio</td>
+                                <td>Importação</td>
+                                <td>Desembarque</td>
+                                <td>17/05/2021 14:50</td>
+                                <td>12/08/2021 15:35</td>
+                                <td><a href="#" class="text-success"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="#" class="text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--Add Section-->
+        
+        <div id="overlay" v-if="showAddModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Adicionar Usuário</h5>
+                        <button type="button" class="close" style="border: 0px;" @click="showAddModal=false">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <input type="text" name="Nome" class="form-control form-control-lg" placeholder="Nome" v-model="newCliente.name">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="num-cont" class="form-control form-control-lg" placeholder="Nº do contêiner" v-model="newCliente.nconteiner">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="tipo" class="form-control form-control-lg" placeholder="Tipo" v-model="newCliente.tipo">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="status" class="form-control form-control-lg" placeholder="Status" v-model="newCliente.status">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="categoria" class="form-control form-control-lg" placeholder="Categoria" v-model="newCliente.categoria">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="mov" class="form-control form-control-lg" placeholder="Movimentação" v-model="newCliente.movs">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="dta_inicio" class="form-control form-control-lg" placeholder="Data e Hora do início" v-model="newCliente.dta_inicio">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="dta_fim" class="form-control form-control-lg" placeholder="Data e Hora do fim" v-model="newCliente.dta_fim">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <button class="btn btn-info btn-block"
+                                @click="showAddModal=false; addCliente();"> Adicionar Cliente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Edit Section-->
+
+        <div id="overlay" v-if="showEditModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Editar Informações</h5>
+                        <button type="button" class="close" style="border: 0px;" @click="showEditModal=false">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <input type="text" name="cliente" class="form-control form-control-lg" v-model="currentCliente.name">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="num-cont" class="form-control form-control-lg" v-model="currentCliente.nconteiner">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="tipo" class="form-control form-control-lg" v-model="currentCliente.tipo">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="status" class="form-control form-control-lg" v-model="currentCliente.status">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="categoria" class="form-control form-control-lg" v-model="currentCliente.categoria">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="mov" class="form-control form-control-lg" v-model="currentCliente.movs">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="dta_inicio" class="form-control form-control-lg" v-model="currentCliente.dta_inicio">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <input type="text" name="dta_fim" class="form-control form-control-lg" v-model="currentCliente.dta_fim">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <button class="btn btn-info btn-block" 
+                                @click="showEditModal=false; updateCliente();"> Editar </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Delete Section-->
+
+        <div id="overlay" v-if="showDeleteModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Deletar Cliente</h5>
+                        <button type="button" class="close" style="border: 0px;" @click="showDeleteModal=false">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <h4>Tem certeza que deseja deletar este cliente?</h4>
+                            <br/>
+                            <div class="form-group">
+                                <button class="btn btn-info alert-danger" 
+                                @click="showDeleteModal=false; deleteCliente();"> Deletar </button>
+                                &nbsp;
+                                <button class="btn btn-info" 
+                                @click="showDeleteModal=false"> Cancelar </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    
+    
+</body>
+</html>
