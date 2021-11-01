@@ -7,11 +7,6 @@
 </p>
 <h4 align="center">System of CRUD built with VUE.js, HTML, Bootstrap & Php</h4>
 
-<p align="center">
-  <a href="https://github.com/Arthur756/INSIDE-CRUD-.git">
-    <img alt="Github Actions"/>
-  </a>
-</p>
 
 <br />
 
@@ -22,7 +17,7 @@
 ![PHP!](https://github.com/Arthur756/INSIDE-CRUD-/blob/271586be70ea0db750060e0746afb07a65ee39e1/APPLICATION%20WEB%20PICTURE.jpg)
 ---
 
-## PhpMyAdmin
+### PhpMyAdmin
 
 This app is bootstrapped with VUE.js(https://vuejs.org), you can access the database of this project by [Xampp](https://www.apachefriends.org/pt_br/index.html).
 
