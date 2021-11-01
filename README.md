@@ -17,11 +17,18 @@
 
 ---
 
+# Interface
+
+![PHP!](https://github.com/Arthur756/INSIDE-CRUD-/blob/271586be70ea0db750060e0746afb07a65ee39e1/APPLICATION%20WEB%20PICTURE.jpg)
+---
+
 ## PhpMyAdmin
 
 This app is bootstrapped with VUE.js(https://vuejs.org), you can access the database of this project by [Xampp](https://www.apachefriends.org/pt_br/index.html).
 
 ## :hammer: Bootstrap
+
+<img alt="style image" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" width="200px">
 
 ![Style!](https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg)
 
@@ -74,27 +81,18 @@ All functions were built following the concept of CRUD, with respective controls
 
 ## :raising_hand: Contribute
 
-If you find a bug, or if you have an idea for this app, please [file an issue here](https://github.com/shootismoke/mobile-app/issues). We really appreciate feedback and inputs!
-
-🇬🇧🇫🇷🇪🇸🇨🇳 You may also contribute with translations with our online tool [POEditor](https://poeditor.com/join/project/iEsj0CSPGX). If you need context for some terms, here are [some screenshots](https://nx1394.your-storageshare.de/s/grS6CZJGapRSH6i).
-
-For code contribution, the codebase heavily relies on functional programming principles via the [`fp-ts`](https://github.com/gcanti/fp-ts) library. The codebase itself is quite simple, so even if you're beginner to functional programming, it shouldn't be hard to follow along. You can start with these [easy tasks](https://github.com/shootismoke/mobile-app/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
-
-More information on contributing [here](./CONTRIBUTING.md).
+If you find a bug, or if you have an idea for this app, please file an issue here. We really appreciate feedback and inputs!
 
 ## :microscope: Tests
 
-The codebase unfortunately isn't much covered by tests. Check out the `*.spec.ts` files in the project for tests. If you're interested to help out, have a look at [issue #19](https://github.com/shootismoke/mobile-app/issues/19).
+The codebase unfortunately isn't much covered by tests.
 
-## :newspaper: License
-
-GPL-3.0. See [LICENSE](./LICENSE) file for more information.
 
 ## :star: Credits
 
-Created with pride by [Marcelo](http://www.marcelocoelho.cc) & [Amaury](https://amaurym.com).
+Created with pride by [Arthur](www.linkedin.com/in/arthur-belfort-7568b8f34).
 
-A **huge** thanks to the following contributors for their amazing work:
+Personal website:
 
 
 # Logo
@@ -102,9 +100,7 @@ A **huge** thanks to the following contributors for their amazing work:
 ![PHP!](https://github.com/Arthur756/INSIDE-CRUD-/blob/022bc5be65720340363074d49d7d095c39f564fc/INSIDE%20LOGO.jpg)
 
 
-# Web Application
 
-![PHP!](https://github.com/Arthur756/INSIDE-CRUD-/blob/271586be70ea0db750060e0746afb07a65ee39e1/APPLICATION%20WEB%20PICTURE.jpg)
-
+# PhpMyAdmin
 
 ![PHPMYADMIN!](https://installatron.com/images/remote/ss1_phpmyadmin.png)
