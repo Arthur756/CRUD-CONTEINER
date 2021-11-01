@@ -14,7 +14,7 @@
 
 
 <p align="center" style="background-color: #F8A65D;">
-    <img alt="oss image" src="./assets/logos/transparent/transparent@3x.png" width="100px">
+    <img alt="oss image" src="https://github.com/Arthur756/INSIDE-CRUD-/blob/0dab93ab1ef30f088ad52ef8ad1982476a802595/Ativo%201.png" width="100px">
     <h1 align="center">CRUD INSIDE</h1>
 </p>
 <h4 align="center">System of CRUD built with VUE.js, HTML, Bootstrap & Php</h4>
