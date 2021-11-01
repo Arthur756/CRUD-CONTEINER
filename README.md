@@ -30,8 +30,6 @@ This app is bootstrapped with VUE.js(https://vuejs.org), you can access the data
 
 <img alt="style image" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" width="200px">
 
-![Style!](https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg)
-
 ```bash
 Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
 ```
